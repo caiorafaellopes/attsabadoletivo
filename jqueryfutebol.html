@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Times de Futebol</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Times de Futebol</h1>
+    <ul id="lista-times">
+        <li data-nome="Real Madrid" data-cidade="Madri" data-fundacao="1902">Real Madrid</li>
+        <li data-nome="FC Barcelona" data-cidade="Barcelona" data-fundacao="1899">FC Barcelona</li>
+        <li data-nome="Manchester United" data-cidade="Manchester" data-fundacao="1878">Manchester United</li>
+    </ul>
+    <div id="info-time"></div>
+
+    <script>
+        // Quando um item da lista é clicado, exibe informações sobre o time
+        $("#lista-times li").on("click", function () {
+            var nome = $(this).data("nome");
+            var cidade = $(this).data("cidade");
+            var fundacao = $(this).data("fundacao");
+            var info = "Nome: " + nome + "<br>Cidade: " + cidade + "<br>Ano de Fundação: " + fundacao;
+            $("#info-time").html(info);
+        });
+    </script>
+</body>
+
+</html>

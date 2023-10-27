@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipes Esportivas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Equipes Esportivas</h1>
+
+<label for="cidade">Filtrar por Cidade:</label>
+<select id="cidade">
+    <option value="Todas">Todas</option>
+</select>
+
+<ul id="equipes">
+</ul>
+
+<script>
+$(document).ready(function() {
+    // Dados das equipes em formato JSON
+    var equipes = [
+        { "nome": "Time A", "cidade": "São Paulo" },
+        { "nome": "Time B", "cidade": "Rio de Janeiro" },
+        { "nome": "Time C", "cidade": "São Paulo" },
+        { "nome": "Time D", "cidade": "Belo Horizonte" }
+    ];
+
+    // Preencher o seletor de cidades
+    var cidades = equipes.map(function(equipe) {
+        return equipe.cidade;
+    });
+    cidades = [...new Set(cidades)];
+    cidades.forEach(function(cidade) {
+        $("#cidade").append("<option value='" + cidade + "'>" + cidade + "</option>");
+    });
+
+    // Atualizar a lista de equipes quando a seleção da cidade muda
+    $("#cidade").on("change", function() {
+        var selectedCidade = $(this).val();
+        $("#equipes").empty();
+
+        equipes.forEach(function(equipe) {
+            if (selectedCidade === "Todas" || equipe.cidade === selectedCidade) {
+                $("#equipes").append("<li>" + equipe.nome + " - " + equipe.cidade + "</li>");
+            }
+        });
+    });
+
+    // Preencher a lista inicialmente
+    $("#cidade").trigger("change");
+});
+</script>
+
+</body>
+</html>

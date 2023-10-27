@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Times de Futebol</title>
+</head>
+<body>
+    <h1>Times de Futebol</h1>
+    <ul id="lista-times"></ul>
+
+    <script>
+        // Função para carregar e exibir os dados do JSON
+        function carregarDados() {
+            fetch("times_futebol.json")
+                .then(response => response.json())
+                .then(data => {
+                    const listaTimes = document.getElementById("lista-times");
+                    data.times.forEach(time => {
+                        const listItem = document.createElement("li");
+                        listItem.innerHTML = "Nome: " + time.nome + "<br>Cidade: " + time.cidade + "<br>Ano de Fundação: " + time.fundacao + "<br><br>";
+                        listaTimes.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar os dados: " + error));
+        }
+
+        // Chama a função para carregar os dados quando a página é carregada
+        carregarDados();
+    </script>
+</body>
+</html>

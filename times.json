@@ -1,0 +1,19 @@
+{
+    "times": [
+        {
+            "nome": "Real Madrid",
+            "cidade": "Madri",
+            "fundacao": 1902
+        },
+        {
+            "nome": "FC Barcelona",
+            "cidade": "Barcelona",
+            "fundacao": 1899
+        },
+        {
+            "nome": "Manchester United",
+            "cidade": "Manchester",
+            "fundacao": 1878
+        }
+    ]
+}

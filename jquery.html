@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Times de Basquete</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Times de Basquete</h1>
+    <ul id="lista-times">
+        <li data-nome="Los Angeles Lakers" data-cidade="Los Angeles" data-fundacao="1947">Los Angeles Lakers</li>
+        <li data-nome="Boston Celtics" data-cidade="Boston" data-fundacao="1946">Boston Celtics</li>
+        <li data-nome="Chicago Bulls" data-cidade="Chicago" data-fundacao="1966">Chicago Bulls</li>
+    </ul>
+    <div id="info-time"></div>
+
+    <script>
+        // Quando um item da lista é clicado, exibe informações sobre o time
+        $("#lista-times li").on("click", function () {
+            var nome = $(this).data("nome");
+            var cidade = $(this).data("cidade");
+            var fundacao = $(this).data("fundacao");
+            var info = "Nome: " + nome + "<br>Cidade: " + cidade + "<br>Ano de Fundação: " + fundacao;
+            $("#info-time").html(info);
+        });
+    </script>
+</body>
+
+</html>

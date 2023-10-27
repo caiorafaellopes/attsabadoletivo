@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Times de Basquete</title>
+</head>
+<body>
+    <h1>Times de Basquete</h1>
+    <ul id="lista-times"></ul>
+
+    <script>
+        // Dados em formato JSON
+        var dados = {
+            "times": [
+                {
+                    "nome": "Los Angeles Lakers",
+                    "cidade": "Los Angeles",
+                    "fundação": 1947
+                },
+                {
+                    "nome": "Boston Celtics",
+                    "cidade": "Boston",
+                    "fundação": 1946
+                },
+                {
+                    "nome": "Chicago Bulls",
+                    "cidade": "Chicago",
+                    "fundação": 1966
+                }
+            ]
+        };
+
+        var listaTimes = document.getElementById("lista-times");
+
+        // Itera sobre os times e os exibe na lista
+        for (var i = 0; i < dados.times.length; i++) {
+            var time = dados.times[i];
+            var listItem = document.createElement("li");
+            listItem.innerHTML = "Nome: " + time.nome + "<br>Cidade: " + time.cidade + "<br>Ano de Fundação: " + time.fundação + "<br><br>";
+            listaTimes.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
